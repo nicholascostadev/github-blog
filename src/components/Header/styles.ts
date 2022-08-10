@@ -7,3 +7,8 @@ export const HeaderContainer = styled.header`
   justify-content: space-between;
   align-items: center;
 `
+
+export const CenterImage = styled.img`
+  align-self: flex-start;
+  margin-top: 4rem;
+`
