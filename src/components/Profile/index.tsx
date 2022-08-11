@@ -4,25 +4,36 @@ import { AiOutlineGithub } from 'react-icons/ai'
 import { FaBuilding, FaExternalLinkAlt } from 'react-icons/fa'
 import { MdPeopleAlt } from 'react-icons/md'
 
-export const Profile = () => {
+interface ProfileProps {
+  userInfo: {
+    name: string
+    bio: string
+    followers: number
+    company?: string
+    login: string
+  }
+}
+
+export const Profile = ({ userInfo }: ProfileProps) => {
   return (
     <ProfileContainer>
-      <img src="https://github.com/nicholascostadev.png" alt="" />
+      <img
+        src={`https://github.com/${userInfo.login}.png`}
+        alt="Profile Picture"
+      />
       <ProfileInformation>
         <GithubLink href="https://github.com/nicholascostadev">
           Github
           <FaExternalLinkAlt />
         </GithubLink>
-        <strong>Nicholas Costa</strong>
-        <p>
-          Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu
-          viverra massa quam dignissim aenean malesuada suscipit. Nunc, volutpat
-          pulvinar vel mass.
-        </p>
+        <strong>{userInfo.name}</strong>
+        <p>{userInfo.bio}</p>
         <div>
-          <IconAndText icon={<AiOutlineGithub />}>nicholascostadev</IconAndText>
-          <IconAndText icon={<FaBuilding />}>Rocketseat</IconAndText>
-          <IconAndText icon={<MdPeopleAlt />}>32 seguidores</IconAndText>
+          <IconAndText icon={<AiOutlineGithub />}>{userInfo.login}</IconAndText>
+          <IconAndText icon={<FaBuilding />}>
+            {userInfo.company ? userInfo.company : 'Sem afiliação'}
+          </IconAndText>
+          <IconAndText icon={<MdPeopleAlt />}>{userInfo.followers}</IconAndText>
         </div>
       </ProfileInformation>
     </ProfileContainer>

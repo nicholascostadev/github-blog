@@ -3,14 +3,14 @@ import { IconAndTextContainer } from './styles'
 
 interface IconAndTextProps {
   icon: ReactNode
-  children: string
+  children: string | number | undefined
 }
 
 export const IconAndText = ({ children, icon }: IconAndTextProps) => {
   return (
     <IconAndTextContainer>
       {icon}
-      {children}
+      {typeof children === 'number' ? `${children} followers` : children}
     </IconAndTextContainer>
   )
 }

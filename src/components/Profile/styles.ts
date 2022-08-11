@@ -30,6 +30,14 @@ export const ProfileInformation = styled.div`
     font-size: 1.5rem;
   }
 
+  p {
+    color: ${(props) => props.theme['teal-100']};
+  }
+
+  svg {
+    color: ${(props) => props.theme['teal-300']};
+  }
+
   > div {
     display: flex;
     gap: 0 24px;
@@ -45,7 +53,10 @@ export const GithubLink = styled.a`
   align-items: center;
   gap: 0 8px;
 
-  color: ${(props) => props.theme.blue};
+  &,
+  svg {
+    color: ${(props) => props.theme.blue};
+  }
 
   text-decoration: none;
 

@@ -8,4 +8,6 @@ export const IconAndTextContainer = styled.div<IconAndTextContainerProps>`
   align-items: center;
 
   gap: 0 8px;
+
+  color: ${(props) => props.theme['gray-200']};
 `

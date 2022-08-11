@@ -4,7 +4,7 @@ import { Home } from './pages/Home'
 export const Router = () => {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/:username/:repo" element={<Home />} />
     </Routes>
   )
 }
