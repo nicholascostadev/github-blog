@@ -24,7 +24,7 @@ interface IssuesProps {
   items: {
     title: string
     body: string
-    issueUrl: string
+    html_url: string
   }[]
 }
 export const Home = () => {
@@ -64,7 +64,9 @@ export const Home = () => {
         },
       })
 
-      setIssues(response.data)
+      setIssues({
+        items: response.data.items,
+      })
     },
     [],
   )

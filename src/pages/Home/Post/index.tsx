@@ -3,9 +3,9 @@ import { PostContainer } from './styles'
 interface PostProps {
   title: string
   body: string
-  issueUrl: string
+  html_url: string
 }
-export const Post = ({ body, title, issueUrl }: PostProps) => {
+export const Post = ({ body, title, html_url: issueUrl }: PostProps) => {
   const cleanBody = body.replace(/[^\w ]/g, '')
 
   return (
