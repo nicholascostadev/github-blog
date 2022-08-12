@@ -3,7 +3,7 @@ import { IconAndTextContainer } from './styles'
 
 interface IconAndTextProps {
   icon: ReactNode
-  children: string | number | undefined
+  children: string | number | undefined | ReactNode
 }
 
 export const IconAndText = ({ children, icon }: IconAndTextProps) => {

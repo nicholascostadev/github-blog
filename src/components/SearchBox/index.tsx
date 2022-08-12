@@ -13,8 +13,11 @@ export const SearchBox = ({ getIssues }: SearchBoxProps) => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (query && repo && username) getIssues({ query, repo, username })
-    }, 1500)
+      if ((query && repo && username) || (query === '' && repo && username)) {
+        console.log({ query })
+        getIssues({ query, repo, username })
+      }
+    }, 300)
 
     return () => clearTimeout(timer)
   }, [query, repo, username, getIssues])
