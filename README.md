@@ -6,6 +6,8 @@
 
 <br>
 
+Example routing : http://github-blog-eta.vercel.app/nicholacostadev/github-blog
+
 # Explanation of the project
 
 This project takes any project from the github and searches for it's issues and shows it as a blog post. For example, you can access the routes:
