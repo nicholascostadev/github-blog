@@ -6,6 +6,7 @@ import { Header } from '../../components/Header'
 import { Profile } from '../../components/Profile'
 import { SearchBox } from '../../components/SearchBox'
 import { Posts } from './Posts'
+import { HomeContainer } from './styles'
 // import { useUsername } from '../../hooks/useUsername'
 
 export interface getIssuesParams {
@@ -93,12 +94,12 @@ export const Home = () => {
 
   if (!username || !repo) return <div>NO USERNAME</div>
   return (
-    <>
+    <HomeContainer>
       <Header />
       <Profile userInfo={userInfo} />
       <SearchBox getIssues={getIssues} />
       <Posts posts={issues.items} />
       <Footer />
-    </>
+    </HomeContainer>
   )
 }
