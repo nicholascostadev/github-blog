@@ -3,17 +3,31 @@ import styled from 'styled-components'
 export const ProfileContainer = styled.div`
   display: flex;
   width: 864px;
+  max-width: 98%;
   margin: 0 auto;
-  margin-top: -120px;
+  margin-top: -60px;
 
   border-radius: 10px;
   background: ${(props) => props.theme['teal-600']};
   padding: 2.5rem 2rem;
 
+  z-index: 10;
+
   img {
     width: 148px;
     height: 148px;
     border-radius: 8px;
+  }
+
+  @media (max-width: 628px) {
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+    img {
+      width: calc(148px * 1.5);
+      height: auto;
+    }
   }
 `
 
@@ -34,33 +48,27 @@ export const ProfileInformation = styled.div`
     color: ${(props) => props.theme['teal-100']};
   }
 
-  svg {
-    color: ${(props) => props.theme['teal-300']};
-  }
-
   > div {
     display: flex;
     gap: 0 24px;
-  }
-`
 
-export const GithubLink = styled.a`
-  position: absolute;
-  top: 0;
-  right: 0;
-
-  display: flex;
-  align-items: center;
-  gap: 0 8px;
-
-  &,
-  svg {
-    color: ${(props) => props.theme.blue};
+    svg {
+      color: ${(props) => props.theme['teal-300']};
+    }
   }
 
-  text-decoration: none;
+  @media (max-width: 628px) {
+    margin-left: 0;
+    > a {
+      top: 0.9375rem;
+    }
+    > div {
+      margin-top: 0.5rem;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
 
-  &:hover {
-    text-decoration: underline;
+      gap: 0.5rem 0;
+    }
   }
 `

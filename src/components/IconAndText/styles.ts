@@ -6,8 +6,18 @@ interface IconAndTextContainerProps {
 export const IconAndTextContainer = styled.div<IconAndTextContainerProps>`
   display: flex;
   align-items: center;
+  justify-content: center;
 
   gap: 0 8px;
 
-  color: ${(props) => props.theme['gray-200']};
+  line-height: 1.2;
+
+  &,
+  a {
+    color: ${(props) => props.theme['gray-200']};
+  }
+
+  svg {
+    line-height: 0;
+  }
 `

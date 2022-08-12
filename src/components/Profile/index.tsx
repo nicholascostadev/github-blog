@@ -1,8 +1,9 @@
 import { IconAndText } from '../IconAndText'
-import { GithubLink, ProfileContainer, ProfileInformation } from './styles'
+import { ProfileContainer, ProfileInformation } from './styles'
 import { AiOutlineGithub } from 'react-icons/ai'
 import { FaBuilding, FaExternalLinkAlt } from 'react-icons/fa'
 import { MdPeopleAlt } from 'react-icons/md'
+import { AbsoluteLink } from '../../styles/global'
 
 interface ProfileProps {
   userInfo: {
@@ -11,6 +12,7 @@ interface ProfileProps {
     followers: number
     company?: string
     login: string
+    url: string
   }
 }
 
@@ -22,16 +24,24 @@ export const Profile = ({ userInfo }: ProfileProps) => {
         alt="Profile Picture"
       />
       <ProfileInformation>
-        <GithubLink href="https://github.com/nicholascostadev">
-          Github
+        <AbsoluteLink href={userInfo.url} rel="noreferrer" target="_blank">
+          GITHUB
           <FaExternalLinkAlt />
-        </GithubLink>
+        </AbsoluteLink>
         <strong>{userInfo.name}</strong>
         <p>{userInfo.bio}</p>
         <div>
-          <IconAndText icon={<AiOutlineGithub />}>{userInfo.login}</IconAndText>
+          <IconAndText icon={<AiOutlineGithub />}>
+            <a
+              href={`https://github.com/${userInfo.login}`}
+              rel="noreferrer"
+              target="_blank"
+            >
+              {userInfo.login}
+            </a>
+          </IconAndText>
           <IconAndText icon={<FaBuilding />}>
-            {userInfo.company ? userInfo.company : 'Sem afiliação'}
+            {userInfo.company ?? 'Sem afiliação'}
           </IconAndText>
           <IconAndText icon={<MdPeopleAlt />}>{userInfo.followers}</IconAndText>
         </div>

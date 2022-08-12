@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const SearchBoxContainer = styled.div`
   width: 864px;
+  max-width: 98%;
   margin: 72px auto;
 
   > div {
@@ -27,7 +28,13 @@ export const SearchInput = styled.input`
 
   color: ${(props) => props.theme['gray-100']};
 
+  transition: border 0.2s;
+
   &::placeholder {
     color: ${(props) => props.theme['teal-300']};
+  }
+
+  &:hover {
+    border: 1px solid ${(props) => props.theme['teal-300']};
   }
 `
